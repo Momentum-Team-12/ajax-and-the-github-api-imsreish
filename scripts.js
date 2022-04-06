@@ -1,5 +1,7 @@
 console.log("JS is connected");
 
+let profileDiv = document.querySelector("#profile");
+
 fetch("https://api.github.com/users/imsreish", {
   method: "GET",
   headers: {},
@@ -14,6 +16,11 @@ fetch("https://api.github.com/users/imsreish", {
     console.log("GitHub URL:", data.html_url);
     console.log("GitHub username:", data.login);
     console.log("GitHub Repos:", data.public_repos);
+
+    let nameDiv = document.createElement("p");
+    nameDiv.classList.add("name");
+    nameDiv.innerText = data.name;
+    profileDiv.appendChild(nameDiv);
   });
 
 fetch("https://api.github.com/users/imsreish/repos", {
