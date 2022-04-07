@@ -66,8 +66,16 @@ fetch("https://api.github.com/users/imsreish/repos", {
   })
   .then(function (data) {
     console.log(data);
-    const publicRepos = data.name;
+    const publicRepos = data;
+
+    let keys = Object.keys(data);
+    for (let key of keys) {
+      data[0][key];
+    }
+    console.log(data[0]);
+
     for (let publicRepo of publicRepos) {
+      console.log(publicRepo);
       let oneRepo = document.createElement("div");
       oneRepo.classList.add("repo");
       oneRepo.innerText = publicRepos;
